@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        color: #333;
+    }
+    a{
+        text-decoration: none;
+        color: #333;
+    }
+    a:hover{
+        color: red;
+    }
+    .top{
+        height: 30px;
+        background-color: #e3e4e5;
+        color: #999;
+        /*text-align: center;*/
+        line-height: 30px;
+    }
+    .w1200{
+        width: 1200px;
+        height: 30px;
+        margin: 0 auto;
+        font-size: 12px;
+        /*display: inline-block;*/
+        /*text-align: left;*/
+    }
+    .up{
+        height: 140px;
+        background-color: white;
+    }
+    .logo{
+        height: 107px;
+        background-color: beige;
+    }
+    .chanal-nav{
+        display: flex;//布局，默认left
+        /*align-items: center;!*竖*!*/
+        /*justify-content: center;  水平*/
+        background-color: white;
+        height: 33px;
+        line-height: 33px;
+        margin: 0 auto;
+    }
+    .type{
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
+        width: 190px;
+        padding-left: 10px;
+        background-color: #ffa133;
+        /*float: left;*/
+    }
+    .nav{
+        display: flex;
+
+        list-style: none;
+        /*text-decoration: none;*/
+    }
+    .ul-nav a{
+        font-size: 14px;
+    }
+    .nav li{
+        /*float: left;*/
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .split{
+        color: #ccc;
+    }
+    .titleColor{
+        color: #ffa133;
+    }
+    .down{
+        background-color: #f6f6f6;
+        height: 1000px;
+    }
+    .clear{
+        /*clear: both;!*去除上面块级元素的所有浮动效果*!*/
+    }
+
+</style>
+<body>
+    <!--首页，顶部   start-->
+    <div class="top">
+        <div class="w1200">
+            京东首页
+        </div>
+    </div>
+    <!--首页，顶部   end-->
+    <!--上部    start-->
+    <div class="up">
+        <div class="logo w1200">
+            logo
+        </div>
+        <div class="chanal-nav w1200">
+            <p class="type">京东超市频道分类</p>
+            <ul class="nav">
+                <li><a class="titleColor" href="">超市首页</a></li>
+                <li class="split">|</li>
+                <li><a href="">超值量贩</a></li>
+                <li class="split">|</li>
+                <li><a href="">京东生鲜</a></li>
+                <li class="split">|</li>
+                <li><a href="">品牌特卖</a></li>
+                <li class="split">|</li>
+                <li><a href="">山姆会员店</a></li>
+                <li class="split">|</li>
+                <li><a href="">企业采购</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--上部    end-->
+    <!--下部，主体部分   start-->
+    <div class="down clear">
+        主题导航
+    </div>
+    <!--下部，主体部分   end-->
+</body>
+</html>

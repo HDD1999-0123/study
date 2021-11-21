@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>程序创新大会报名表美化</title>
+    <script src="jquery-1.11.1.js"></script>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .all{
+        background: url("../../JavaScript/homework/back.jfif");
+        height: auto;
+    }
+    .head{
+        width: 300px;
+        height: 30px;
+        color: aqua;
+        margin:  0 auto;
+    }
+    .main{
+        border-radius: 30px;
+        margin: 0 auto;
+        background-color: #99999975;
+        padding-top: 20px;
+        padding-bottom: 30px;
+        width: 400px;
+        height: 450px;
+    }
+    .form{
+        width: 350px;
+        margin: 0 auto;
+        text-align: center;
+        height: 400px;
+    }
+    .form-fill-title{
+        color: aquamarine;
+        width: 70px;
+        float: left;
+        text-align: left;
+        height: 50px;
+    }
+    .form-fill{
+        width: 300px;
+        height: 50px;
+    }
+    .button{
+        padding-top: 30px;
+    }
+    .button-reset{
+        background-color: crimson;
+        font-family: 华文琥珀;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .button-submit{
+        background-color: green;
+        font-family: 华文琥珀;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .introduce{
+        width: 400px;
+        margin: 0 auto;
+    }
+    span{
+        font-size: 12px;
+    }
+</style>
+<script>
+    function isUserName(){
+        var val = $("input[name='name']").val();
+        if (val==""){
+            $("#nameDes").html("姓名不能为空！").css("color","red");
+            return false;
+        }
+        if (/^[0-9]/.test(val)){//第一个字符不能为数字
+            $("#nameDes").html("姓名不合法！").css("color","red");
+            return false;
+        }
+        $("#nameDes").html("输入正确！").css("color","green");
+        return true;
+    }
+    function isSchool(){
+        var val = $("input[name='school']").val();
+        if (val==""){
+            $("#schoolDes").html("院校不能为空！").css("color","red");
+            return false;
+        }
+        $("#schoolDes").html("输入正确！").css("color","green");
+        return true;
+    }
+    function isMajor(){
+        var val = $("input[name='major']").val();
+        if (val==""){
+            $("#majorDes").html("专业不能为空！").css("color","red");
+            return false;
+        }
+        $("#majorDes").html("输入正确！").css("color","green");
+        return true;
+    }
+    function isPhone(){
+        var val = $("input[name='phone']").val();
+        if (/^((0\d{2,3}-\d{7,8})|(1[345789]\d{9}))$/.test(val)==false){
+            $("#phoneDes").html("电话号码不合法！").css("color","red");
+            return false;
+        }
+        $("#phoneDes").html("输入正确！").css("color","green");
+        return true;
+    }
+    function isEmail(){
+        var val = $("input[name='email']").val();
+        if (/^\w+@[a-zA-Z0-9]{2,10}(?:\.[a-z]{2,4}){1,3}$/.test(val)==false){
+            $("#emailDes").html("邮箱地址不合法！").css("color","red");
+            return false;
+        }
+        $("#emailDes").html("输入正确！").css("color","green");
+        return true;
+    }
+    $(function (){
+        $("input[name='name']").blur(function (){
+            isUserName();
+        })
+        $("input[name='school']").blur(function (){
+            isSchool();
+        })
+        $("input[name='major']").blur(function (){
+            isMajor();
+        })
+        $("input[name='phone']").blur(function (){
+            isPhone();
+        })
+        $("input[name='email']").blur(function (){
+            isEmail();
+        })
+        $("#myForm").submit(function (){
+            return isUserName()&&isSchool()&&isMajor()&&isPhone()&&isEmail();
+        })
+    })
+</script>
+<body>
+<div class="all">
+    <div class="head"><h1>程序创新大会报名表</h1></div>
+    <br>
+    <div class="main">
+        <div id="formDiv" class="form">
+            <form id="myForm" action="success.html" method="get">
+                <div class="form-fill-title">
+                    <label>姓名：</label>
+                </div>
+                <div class="form-fill">
+                    <label>
+                        <input id="name" type="text" name="name"/>
+                    </label>
+                    <div><span id="nameDes"></span></div>
+                </div>
+
+                <div class="form-fill-title">
+                    <label>院校：</label>
+                </div>
+                <div class="form-fill">
+                    <label>
+                        <input id="school" type="text" name="school" onblur="s()" />
+                    </label>
+                    <div><span id="schoolDes"></span></div>
+                </div>
+                <div class="form-fill-title">
+                    <label>专业：</label>
+                </div>
+                <div class="form-fill">
+                    <label>
+                        <input id="major" type="text" name="major" onblur="m()" />
+                    </label>
+                    <div><span id="majorDes"></span></div>
+                </div>
+                <div class="form-fill-title">
+                    <label>性别：</label>
+                </div>
+                <div class="form-fill">
+                    <label>
+                        男<input type="radio" name="sex" value="男" checked/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        女<input type="radio" name="sex" value="女"/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                    </label>
+                </div>
+                <div class="form-fill-title">
+                    <label>电话：</label>
+                </div>
+                <div class="form-fill">
+                    <label>
+                        <input id="phone" type="tel" name="phone" onblur="p()"/>
+                    </label>
+                    <div><span id="phoneDes"></span></div>
+                </div>
+
+                <div class="form-fill-title">
+                    <label>邮箱：</label>
+                </div>
+                <div class="form-fill">
+                    <label>
+                        <input id="email" type="email" name="email" onblur="e()" />
+                    </label>
+                    <div><span id="emailDes"></span></div>
+                </div>
+                <div class="form-fill-title">
+                    <label>个人介绍:</label>
+                </div>
+                <div class="form-fill">
+                    <label>
+                        <textarea name="introduce"></textarea>
+                    </label>
+                </div>
+                <div class="button">
+                    <button class="button-reset" type="reset">重置</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="button-submit" type="submit">提交</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="introduce">
+        <iframe src="introduce.html" width="400px" height="100%"></iframe>
+    </div>
+</div>
+
+</body>
+</html>

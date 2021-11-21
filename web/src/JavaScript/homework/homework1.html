@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>随机点名器</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .out{
+            border-radius: 10px;
+            position: absolute;
+            background-color: #ff9800;
+            height: 150px;
+            width: 250px;
+            top: 50%;
+            left: 50%;
+        }
+        .name{
+            line-height: 50px;
+            text-align: center;
+            border-radius: 10px;
+            position: absolute;
+            top: 35%;
+            left: 20%;
+            height: 50px;
+            width: 150px;
+            background-color: #9e9e9e;
+            font-size: 20px;
+        }
+        .button{
+            height: 20px;
+            width: 50px;
+            position: absolute;
+            top: 75%;
+            left: 40%;
+            background-color: green;
+
+        }
+        .button1{
+            height: 20px;
+            width: 50px;
+            position: absolute;
+            top: 75%;
+            left: 40%;
+            background-color: red;
+            display: none;
+        }
+    </style>
+</head>
+<script>
+    var flag;
+    function begin(){
+        var begin = document.getElementById("begin");
+        begin.style.display = "none";
+        var close = document.getElementById("close");
+        close.style.display = "block"
+        var names = ["张三","李四","王五","赵六","孙悟空","猪八戒","金蝉子","程咬金","杨玉环","东方耀"]
+        var name = document.getElementById("name");
+        var i = Math.floor(Math.random()*10)
+        name.innerHTML = names[i];
+        flag = window.setTimeout("begin()",200)
+    }
+
+</script>
+<script>
+    function stop(){
+        window.clearTimeout(flag);
+        var begin = document.getElementById("begin");
+        begin.style.display = "block";
+        var close = document.getElementById("close");
+        close.style.display = "none"
+    }
+</script>
+<body>
+    <div class="out">
+        <div class="name" id="name">
+
+        </div>
+        <button id="begin" class="button" type="button" onclick="begin()">开始</button>
+        <button id="close" class="button1" type="button" onclick="stop()">停止</button>
+    </div>
+
+</body>
+</html>

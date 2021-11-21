@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hlx</title>
+</head>
+<script>
+    function close1(){
+        var result = window.confirm("是否真的要停下来？");
+        if(result){
+            alert("不可能的，这辈子停不下来！")
+        }else{
+            alert("这个选择很正确！")
+        }
+    }
+    function circle(){
+        window.setTimeout("createNewP()",500);
+    }
+    function createNewP(){
+        //获取一个页面已经存在的元素
+        var div=document.getElementById("div1");
+        var newElementP=document.createElement("p");//创建一个新的段落元素
+        newElementP.style.float = "left";
+        newElementP.style.color = "red";
+        newElementP.style.fontFamily = "宋体";
+        newElementP.style.fontSize = "20px";
+        var newElementDiv = document.createElement("div");
+        newElementDiv.style.width = "300px";
+        newElementDiv.style.height = "300px"
+        newElementDiv.style.backgroundImage = "url(baby.jpg)";
+        newElementDiv.style.float = "left";
+        var text=document.createTextNode("我爱你！");//新创建的文本节点
+        //将文本的节点添加到新创建的元素中
+        newElementP.appendChild(text);
+        //添加新创建的元素p到已经存在的元素div中
+        div.appendChild(newElementP);
+        div.appendChild(newElementDiv)
+        window.setTimeout("createNewP()",500);
+    }
+</script>
+<style>
+    .love{
+        float: left;
+    }
+</style>
+<body>
+<button type="button" onclick="circle()">开始</button>
+<button type="button" onclick="close1()">停止</button>
+<div>
+    <div id="div1" class="love">
+
+    </div>
+</div>
+<button type="button" onclick="close1()">停止</button>
+
+</body>
+</html>

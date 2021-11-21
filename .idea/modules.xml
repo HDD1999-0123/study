@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AliyunSms/AliyunSms.iml" filepath="$PROJECT_DIR$/AliyunSms/AliyunSms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/XmlAndJson/XmlAndJson.iml" filepath="$PROJECT_DIR$/XmlAndJson/XmlAndJson.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ajaxtest/ajaxtest.iml" filepath="$PROJECT_DIR$/ajaxtest/ajaxtest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bio/bio.iml" filepath="$PROJECT_DIR$/bio/bio.iml" />
+      <module fileurl="file://$PROJECT_DIR$/collection/collection.iml" filepath="$PROJECT_DIR$/collection/collection.iml" />
+      <module fileurl="file://$PROJECT_DIR$/e/e.iml" filepath="$PROJECT_DIR$/e/e.iml" />
+      <module fileurl="file://$PROJECT_DIR$/expressDemo/expressDemo.iml" filepath="$PROJECT_DIR$/expressDemo/expressDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fileDemo/fileDemo.iml" filepath="$PROJECT_DIR$/fileDemo/fileDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/io/io.iml" filepath="$PROJECT_DIR$/io/io.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaUtil/javaUtil.iml" filepath="$PROJECT_DIR$/javaUtil/javaUtil.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaweb/javaweb.iml" filepath="$PROJECT_DIR$/javaweb/javaweb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaweb-mvc/javaweb-mvc.iml" filepath="$PROJECT_DIR$/javaweb-mvc/javaweb-mvc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javawebItem/javawebItem.iml" filepath="$PROJECT_DIR$/javawebItem/javawebItem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jdbc/jdbc.iml" filepath="$PROJECT_DIR$/jdbc/jdbc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lambda/lambda.iml" filepath="$PROJECT_DIR$/lambda/lambda.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mvc/mvc.iml" filepath="$PROJECT_DIR$/mvc/mvc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/net/net.iml" filepath="$PROJECT_DIR$/net/net.iml" />
+      <module fileurl="file://$PROJECT_DIR$/reflection/reflection.iml" filepath="$PROJECT_DIR$/reflection/reflection.iml" />
+      <module fileurl="file://$PROJECT_DIR$/servlet/servletAndJsp.iml" filepath="$PROJECT_DIR$/servlet/servletAndJsp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web/web.iml" filepath="$PROJECT_DIR$/web/web.iml" />
+    </modules>
+  </component>
+</project>

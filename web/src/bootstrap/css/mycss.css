@@ -1,0 +1,16 @@
+.img-thumbnail {
+			  padding: 14px;
+			  border: solid red 1px;
+			}
+.page-header {
+	text-align: center;
+	padding-bottom: 9px;
+	margin: 40px 0 20px;
+	border-bottom: 0 solid #eee;
+	color: #5bc0de;
+	font-family: 华文琥珀;
+}
+.glyphicon-remove-circle:before {
+	content: "\e088";
+	color: red;
+}

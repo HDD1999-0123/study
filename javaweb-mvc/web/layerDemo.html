@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery2.1.4.js"></script>
+    <script src="layer/layer.js"></script>
+    <script>
+        function msgTest(){
+            // layer.msg("hhhhhh")
+            layer.msg("hhh",function (){
+                //窗口关闭时执行,回调函数
+            })
+
+        }
+        function loadTest(){
+            //有返回值，返回的事弹出层的id
+            var widowId = layer.load(0)//0-16
+            //通过窗口的id关闭窗口
+            setTimeout(function (){
+                layer.close(widowId)
+            },2000)
+        }
+        function msg_loadTest(){
+            layer.msg("hhhh",{icon:16,shade:0.01})
+        }
+        function alertTest(){
+            layer.alert("hhhh",{icon: 11})
+        }
+        function tipsTest(){
+            layer.tips("这里有秘密","#s1",{tipsMore:true,tips:1-4})//1，2，3，4分别指上右下左
+        }
+    </script>
+</head>
+<body>
+    <button onclick="msgTest()">msg函数（重点）</button><br>
+    <button onclick="loadTest()">load函数（重点）</button><br>
+    <button onclick="msg_loadTest()">msg函数（load效果）</button><br>
+    <button onclick="alertTest()">alert函数</button><br>
+    <button onclick="tipsTest()">tips函数</button>
+    <p>
+        hsdklf<span id="s1">fshdf</span>
+    </p>
+</body>
+</html>
