@@ -1,5 +1,4 @@
-package com.hdd.dao.impl;
-
+package com.hdd.dao.imp;
 
 
 import com.hdd.bean.Express;
@@ -33,6 +32,8 @@ public class ExpressDaoMysql implements BaseExpressDao {
     public static final String SQL_FIND_BY_SYSPHONE = "SELECT * FROM EXPRESS WHERE SYSPHONE=?";
     //通过用户手机号查询用户所有快递
     public static final String SQL_FIND_BY_USERPHONE = "SELECT * FROM EXPRESS WHERE USERPHONE=?";
+    //通过用户手机号查询用户所有快递
+    public static final String SQL_FIND_BY_USERPHONE_AND_STATUS = "SELECT * FROM EXPRESS WHERE USERPHONE=? AND STATUS=?";
     //录入快递
     public static final String SQL_INSERT = "INSERT INTO EXPRESS (NUMBER,USERNAME,USERPHONE,COMPANY,CODE,INTIME,STATUS,SYSPHONE) VALUES(?,?,?,?,?,NOW(),0,?)";
     //快递修改
@@ -252,6 +253,50 @@ public class ExpressDaoMysql implements BaseExpressDao {
                 Timestamp inTime = result.getTimestamp("inTime");
                 Timestamp outTime = result.getTimestamp("outTime");
                 int status = result.getInt("status");
+                String sysPhone = result.getString("sysPhone");
+                Express e = new Express(id,number,username,userPhone,company,code,inTime,outTime,status,sysPhone);
+                data.add(e);
+            }
+            //6.    资源的释放
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            DruidUtil.close(conn,state,result);
+        }
+        return data;
+    }
+
+    /**
+     * 根据用户手机号码，查询他所有的快递信息
+     *
+     * @param userPhone 手机号码
+     * @param status
+     * @return 查询的快递信息列表
+     */
+    @Override
+    public List<Express> findByUserPhoneAndStatus(String userPhone, int status) {
+        ArrayList<Express> data = new ArrayList<>();
+        //1.    获取数据库的连接
+        Connection conn = DruidUtil.getConnection();
+        PreparedStatement state = null;
+        ResultSet result = null;
+        //2.    预编译SQL语句
+        try {
+            state = conn.prepareStatement(SQL_FIND_BY_USERPHONE_AND_STATUS);
+            //3.    填充参数(可选)
+            state.setString(1,userPhone);
+            state.setInt(2,status);
+            //4.    执行SQL语句
+            result = state.executeQuery();
+            //5.    获取执行的结果
+            while(result.next()){
+                int id = result.getInt("id");
+                String number = result.getString("number");
+                String username = result.getString("username");
+                String company = result.getString("company");
+                String code = result.getString("code");
+                Timestamp inTime = result.getTimestamp("inTime");
+                Timestamp outTime = result.getTimestamp("outTime");
                 String sysPhone = result.getString("sysPhone");
                 Express e = new Express(id,number,username,userPhone,company,code,inTime,outTime,status,sysPhone);
                 data.add(e);

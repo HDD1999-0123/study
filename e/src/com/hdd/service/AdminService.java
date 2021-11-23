@@ -3,7 +3,7 @@ package com.hdd.service;
 
 
 import com.hdd.dao.BaseAdminDao;
-import com.hdd.dao.impl.AdminDaoMysql;
+import com.hdd.dao.imp.AdminDaoMysql;
 
 import java.util.Date;
 

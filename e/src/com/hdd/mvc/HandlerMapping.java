@@ -10,16 +10,16 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
- * @ClassName:
- * @Descripton:映射器（包含了大量的网址与方法的对应关系）
- * @author: hedd
+ * 映射器（包含了大量的网址与方法的对应关系）
  */
 public class HandlerMapping {
     private static Map<String,MVCMapping> data = new HashMap<>();
     public static MVCMapping get(String uri){
         return data.get(uri);
     }
-    public static void load(InputStream is){
+
+
+    public static void load(InputStream is ){
         Properties ppt = new Properties();
         try {
             ppt.load(is);
@@ -28,8 +28,8 @@ public class HandlerMapping {
         }
         //获取配置文件中描述的一个个的类
         Collection<Object> values = ppt.values();
-        for (Object value : values) {
-            String className = (String) value;
+        for (Object cla:values) {
+            String className = (String) cla;
             try {
                 //加载配置文件中描述的每一个类
                 Class c = Class.forName(className);
@@ -37,25 +37,25 @@ public class HandlerMapping {
                 Object obj = c.getConstructor().newInstance();
                 //获取这个类的所有方法
                 Method[] methods = c.getMethods();
-                for (Method method : methods) {
-                    Annotation[] as = method.getAnnotations();
-                    if (as != null){
-                        for (Annotation a : as) {
-                            if (a instanceof ResponseBody){
-                                //说明此方法用于返回字符串给客户端
-                                MVCMapping mapping = new MVCMapping(obj,method,ResponseType.TEXT);
-                                Object o = data.put(((ResponseBody) a).value(), mapping);
-                                if (o!=null){
+                for (Method m:methods) {
+                    Annotation[] as = m.getAnnotations();
+                    if(as != null){
+                        for(Annotation annotation:as){
+                            if(annotation instanceof ResponseBody){
+                                //说明此方法，用于返回字符串给客户端
+                                MVCMapping mapping = new MVCMapping(obj,m,ResponseType.TEXT);
+                                Object o = data.put(((ResponseBody) annotation).value(),mapping);
+                                if(o != null){
                                     //存在了重复的请求地址
-                                    throw new RuntimeException("请求地址重复："+((ResponseBody) a).value());
+                                    throw new RuntimeException("请求地址重复："+((ResponseBody) annotation).value());
                                 }
-                            }else if (a instanceof ResponseView){
-                                //说明此方法用于返回界面客户端
-                                MVCMapping mapping = new MVCMapping(obj,method,ResponseType.VIEW);
-                                Object o = data.put(((ResponseView) a).value(),mapping);
-                                if (o!=null){
+                            }else if(annotation instanceof ResponseView){
+                                //说明此方法，用于返回界面给客户端
+                                MVCMapping mapping = new MVCMapping(obj,m,ResponseType.VIEW);
+                                Object o =  data.put(((ResponseView) annotation).value(),mapping);
+                                if(o != null){
                                     //存在了重复的请求地址
-                                    throw new RuntimeException("请求地址重复："+((ResponseView) a).value());
+                                    throw new RuntimeException("请求地址重复："+((ResponseView) annotation).value());
                                 }
                             }
                         }
@@ -74,6 +74,15 @@ public class HandlerMapping {
         private Object obj;
         private Method method;
         private ResponseType type;
+
+        public MVCMapping() {
+        }
+
+        public MVCMapping(Object obj, Method method, ResponseType type) {
+            this.obj = obj;
+            this.method = method;
+            this.type = type;
+        }
 
         public Object getObj() {
             return obj;
@@ -97,15 +106,6 @@ public class HandlerMapping {
 
         public void setType(ResponseType type) {
             this.type = type;
-        }
-
-        public MVCMapping(Object obj, Method method, ResponseType type) {
-            this.obj = obj;
-            this.method = method;
-            this.type = type;
-        }
-
-        public MVCMapping() {
         }
     }
 }

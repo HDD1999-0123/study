@@ -1,9 +1,10 @@
 package com.hdd.service;
 
-
+import com.aliyuncs.CommonRequest;
+import com.aliyuncs.http.MethodType;
 import com.hdd.bean.Express;
 import com.hdd.dao.BaseExpressDao;
-import com.hdd.dao.impl.ExpressDaoMysql;
+import com.hdd.dao.imp.ExpressDaoMysql;
 import com.hdd.exception.DuplicateCodeException;
 import com.hdd.util.RandomUtil;
 import com.hdd.util.SMSUtil;
@@ -63,6 +64,16 @@ public class ExpressService{
      */
     public static List<Express> findByUserPhone(String userPhone) {
         return dao.findByUserPhone(userPhone);
+    }
+    /**
+     * 根据用户手机号码，查询他所有的快递信息
+     *
+     * @param userPhone 手机号码
+     * @param status 状态码
+     * @return 查询的快递信息列表
+     */
+    public static List<Express> findByUserPhoneAndStatus(String userPhone,int status) {
+        return dao.findByUserPhoneAndStatus(userPhone,status);
     }
 
     /**

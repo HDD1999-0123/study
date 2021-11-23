@@ -2,7 +2,6 @@ package com.hdd.dao.imp;
 
 import com.hdd.bean.Express;
 import com.hdd.dao.BaseExpressDao;
-import com.hdd.dao.impl.ExpressDaoMysql;
 import com.hdd.exception.DuplicateCodeException;
 import org.junit.Test;
 
