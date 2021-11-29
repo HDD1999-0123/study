@@ -123,8 +123,8 @@ public class ExpressDaoMysql implements BaseExpressDao {
                 String userPhone = result.getString("userPhone");
                 String company = result.getString("company");
                 String code = result.getString("code");
-                Timestamp inTime = result.getTimestamp("inTime");
-                Timestamp outTime = result.getTimestamp("outTime");
+                Timestamp inTime = result.getTimestamp("intime");
+                Timestamp outTime = result.getTimestamp("outtime");
                 int status = result.getInt("status");
                 String sysPhone = result.getString("sysPhone");
                 Express e = new Express(id,number,username,userPhone,company,code,inTime,outTime,status,sysPhone);

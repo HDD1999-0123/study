@@ -8,12 +8,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Date;
+import java.util.*;
 
 public class AdminDaoMysql implements BaseAdminDao {
+    //更新用户登录时间和ip
     private static final String SQL_UPDATE_LOGIN_TIME = "UPDATE EADMIN SET LOGINTIME=?,LOGINIP=? WHERE USERNAME=?";
+    //登录
     private static final String SQL_LOGIN = "SELECT ID FROM EADMIN WHERE USERNAME=? AND PASSWORD=?";
-
+    //控制台
+    public static final String SQL_CONSOLE = "SELECT COUNT(ID) admin_size,COUNT(TO_DAYS(CREATETIME)=TO_DAYS(NOW()) OR NULL) admin_day FROM EADMIN";
     /**
      * 根据用户名，更新登陆时间和登录ip
      *

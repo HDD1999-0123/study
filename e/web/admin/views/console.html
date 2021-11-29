@@ -20,7 +20,7 @@
                                 <div class="meta">
                                     <span>用户人数</span>
                                 </div>
-                                <div class="total">6666</div>
+                                <div class="total" id="admin_size">-</div>
                             </div>
                         </div>
                         <div class="chart-body">
@@ -30,7 +30,7 @@
                         <div class="chart-footer">
                             <div class="field">
                                 <span>日注册量</span>
-                                <span>666</span>
+                                <span id="admin_day">-</span>
                             </div>
                         </div>
                     </div>
@@ -44,7 +44,7 @@
                                 <div class="meta">
                                     <span>快递员人数</span>
                                 </div>
-                                <div class="total">888</div>
+                                <div class="total"></div>
                             </div>
                         </div>
                         <div class="chart-body">
@@ -54,7 +54,7 @@
                         <div class="chart-footer">
                             <div class="field">
                                 <span>日注册量</span>
-                                <span>88</span>
+                                <span></span>
                             </div>
                         </div>
                     </div>
@@ -108,7 +108,7 @@
                     </div>
                 </div>
             </div>
-           
+
             <div class="layui-col-sm12 layui-col-md12">
                 <div class="layui-card">
                     <div class="layui-tab layui-tab-brief">
@@ -141,6 +141,13 @@
                     $("#data2_day").html(data.data[1].data2_day);
                 }
            },"JSON");
+            $.post("/user/console.do",null,function(data){
+                if(data.status == 0){
+                    //[{size:总数,day:新增},{size:总数,day:新增}]
+                    $("#admin_size").html(data.data[0].admin_size);
+                    $("#admin_day").html(data.data[0].admin_day);
+                }
+            },"JSON");
         });
     </script>
 </body>

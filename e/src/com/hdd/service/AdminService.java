@@ -6,6 +6,8 @@ import com.hdd.dao.BaseAdminDao;
 import com.hdd.dao.imp.AdminDaoMysql;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 public class AdminService {
 
@@ -30,4 +32,5 @@ public class AdminService {
     public static boolean login(String username,String password){
         return dao.login(username,password);
     }
+
 }

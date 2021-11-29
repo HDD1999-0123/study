@@ -2,8 +2,12 @@ package com.hdd.bean;
 
 import java.sql.Timestamp;
 
-public class User {
-    //<th>编号</th><th>昵称</th><th>手机号码</th><th>密码</th><th>注册时间</th><th>上次登陆时间</th>
+/**
+ * @ClassName:
+ * @Descripton:
+ * @author: hedd
+ */
+public class BootStrapTableUser {
     private int id;
     private String userName;
     private String userPhone;
@@ -18,17 +22,8 @@ public class User {
         this.idcard = idcard;
     }
 
-    private Timestamp createTime;
-    private Timestamp loginTime;
-    private boolean user;
-
-    public boolean isUser() {
-        return user;
-    }
-
-    public void setUser(boolean user) {
-        this.user = user;
-    }
+    private String createTime;
+    private String loginTime;
 
     public int getId() {
         return id;
@@ -62,26 +57,23 @@ public class User {
         this.password = password;
     }
 
-    public Timestamp getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Timestamp createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 
-    public Timestamp getLoginTime() {
+    public String getLoginTime() {
         return loginTime;
     }
 
-    public void setLoginTime(Timestamp loginTime) {
+    public void setLoginTime(String loginTime) {
         this.loginTime = loginTime;
     }
 
-    public User() {
-    }
-
-    public User(int id, String userName, String userPhone, String password, Timestamp createTime, Timestamp loginTime) {
+    public BootStrapTableUser(int id, String userName, String userPhone, String password, String createTime, String loginTime) {
         this.id = id;
         this.userName = userName;
         this.userPhone = userPhone;
