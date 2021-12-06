@@ -22,6 +22,13 @@ public class User {
     private Timestamp loginTime;
     private boolean user;
 
+    public User(String userName, String userPhone, String password, String idcard) {
+        this.userName = userName;
+        this.userPhone = userPhone;
+        this.password = password;
+        this.idcard = idcard;
+    }
+
     public boolean isUser() {
         return user;
     }
@@ -81,6 +88,16 @@ public class User {
     public User() {
     }
 
+    public User(int id, String userName, String userPhone, String password, String idcard, Timestamp createTime, Timestamp loginTime) {
+        this.id = id;
+        this.userName = userName;
+        this.userPhone = userPhone;
+        this.password = password;
+        this.idcard = idcard;
+        this.createTime = createTime;
+        this.loginTime = loginTime;
+    }
+
     public User(int id, String userName, String userPhone, String password, Timestamp createTime, Timestamp loginTime) {
         this.id = id;
         this.userName = userName;
@@ -89,4 +106,5 @@ public class User {
         this.createTime = createTime;
         this.loginTime = loginTime;
     }
+
 }

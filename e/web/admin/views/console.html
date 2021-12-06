@@ -44,7 +44,7 @@
                                 <div class="meta">
                                     <span>快递员人数</span>
                                 </div>
-                                <div class="total"></div>
+                                <div class="total" id="courier_size">-</div>
                             </div>
                         </div>
                         <div class="chart-body">
@@ -54,7 +54,7 @@
                         <div class="chart-footer">
                             <div class="field">
                                 <span>日注册量</span>
-                                <span></span>
+                                <span id="courier_day">-</span>
                             </div>
                         </div>
                     </div>
@@ -146,6 +146,13 @@
                     //[{size:总数,day:新增},{size:总数,day:新增}]
                     $("#admin_size").html(data.data[0].admin_size);
                     $("#admin_day").html(data.data[0].admin_day);
+                }
+            },"JSON");
+            $.post("/courier/console.do",null,function(data){
+                if(data.status == 0){
+                    //[{size:总数,day:新增},{size:总数,day:新增}]
+                    $("#courier_size").html(data.data[0].courier_size);
+                    $("#courier_day").html(data.data[0].courier_day);
                 }
             },"JSON");
         });

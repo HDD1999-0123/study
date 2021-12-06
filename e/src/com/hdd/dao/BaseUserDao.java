@@ -13,4 +13,12 @@ public interface BaseUserDao {
     List<Map<String, Integer>> console();
 
     List<User> findAll(boolean limit, int offset, int pageNumber);
+
+    boolean insert(User user);
+
+    User findByPhone(String userphone);
+
+    boolean update(int id, User user);
+
+    boolean delete(int id);
 }
