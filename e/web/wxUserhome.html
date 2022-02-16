@@ -13,9 +13,9 @@
 		body{
 			background: #f4f4f4;
 		}
-		
+
 		.userInfoCont{
-			
+
 		}
 		.userHeaderDiv{
 			background: #fff;
@@ -45,7 +45,7 @@
 			background: url(images/student.png) no-repeat center left;
 			background-size: 30px;
 			overflow: hidden;
-			white-space: nowrap; 
+			white-space: nowrap;
 			text-overflow: ellipsis;
 		}
 
@@ -177,15 +177,28 @@
 
 		// user Info Edit
 		$(".editUserInfo").click(function(){
-			window.location.href="userCheckStart.html"; 
+			 window.location.href="userCheckStart.html";
 		});
 		$(".expUserInfo").click(function(){
-			window.location.href="userLazyboard.html"; 
+			window.location.href="userLazyboard.html";
 		});
 		$(".userQRcode").click(function(){
 			window.location.href = "personQRcode.html";
 		});
 	});
+</script>
+<script>
+	// $(function(){
+	// 	//1.    ajax与服务器交互
+	// 	$.post("/wx/userInfo.do",null,function(data){
+	// 		if(data.status == 0){
+	// 			$("#data1_size").html(data.data[0].data1_size);
+	// 			$("#data1_day").html(data.data[0].data1_day);
+	// 			$("#data2_size").html(data.data[1].data2_size);
+	// 			$("#data2_day").html(data.data[1].data2_day);
+	// 		}
+	// 	},"JSON");
+	// });
 </script>
 </body>
 </html>

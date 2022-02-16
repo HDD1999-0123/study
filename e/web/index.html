@@ -55,7 +55,7 @@
 					</div>
 			</div>
 		</div>
-	
+
 		<div class="footer">
 			<p class="copytxt">&copy;新职课版权所有</p>
 		</div>
@@ -83,11 +83,11 @@
 			var clickNum = $(this).index();
 			switch(clickNum){
 				//个人中心
-				case(0): 
-					window.location.href= "wxUserhome.html"; 
+				case(0):
+					window.location.href= "wxUserhome.html";
 					break;
-				case(1): 
-					window.location.href= "lazyboard.html"; 
+				case(1):
+					window.location.href= "lazyboard.html";
 					break;
 				case(2): window.location.href= "/wx/createQRCode.do?type=user"; break;
 				case(3): window.location.href= "expressList.html"; break;
@@ -118,7 +118,7 @@
 			var userFunH = contentH - contH - middleH - 30 -20; //footer,userfun(margin)
 			$(".funContdiv").css({"height":userFunH+"px"});
 
-			var funIconH = $(".funIcon").width(); 
+			var funIconH = $(".funIcon").width();
 			$(".funIcon").css({"height": funIconH+"px","line-height": funIconH+"px","border-radius": funIconH/2 +"px","font-size":funIconH/2 +"px"});
 
 		};
@@ -142,24 +142,9 @@
 		//submit arrow
 		$(".submBtn").click(function(){
 			var expressNum = $("#expressNum").val();//快递单号
-			 $.ajax({
-				    type:'GET',
-				    url:pageContextVal+'/ul/indexQueryExpress',
-				    data:{'expressNum':expressNum},
-				    dataType: "json",
-				    success:function(data){
-				    	var jsontmp = data;
-						switch(jsontmp.code) {
-							case "1" : rzAlert("操作提示",jsontmp.message); break;
-							case "0" : 
-								rzAlert("操作提示",jsontmp.message);
-								break;
-						}
-				    },
-				    error:function(){
-				      
-				    }
-				});
+			$.post("/wx/findByNum.do",{expressNum:expressNum},function(data){
+				layer.close(windowId);
+			},"JSON");
 		});
 	});
 	</script>

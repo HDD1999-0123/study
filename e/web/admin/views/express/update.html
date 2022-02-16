@@ -93,9 +93,6 @@
 				username:username,
 				status:status
 			};
-			if(userPhone != g_userPhone){
-				express.userPhone = userPhone;
-			}
 			$.getJSON("/express/update.do",express,function(data){
 				layer.close(windowId);
 				layer.msg(data.result)

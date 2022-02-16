@@ -5,6 +5,7 @@ import com.hdd.bean.Express;
 import com.hdd.bean.Message;
 import com.hdd.bean.User;
 import com.hdd.mvc.ResponseBody;
+import com.hdd.mvc.ResponseView;
 import com.hdd.service.ExpressService;
 import com.hdd.util.DateFormatUtil;
 import com.hdd.util.JSONUtil;
@@ -95,5 +96,11 @@ public class ExpressController {
             msg.setData(list2);
         }
         return JSONUtil.toJSON(msg);
+    }
+    @ResponseView("/wx/findByNum.do")
+    public String findByNum(HttpServletRequest request,HttpServletResponse response){
+        String expressNum = request.getParameter("expressNum");
+        Express express = ExpressService.findByNumber(expressNum);
+       return null;
     }
 }

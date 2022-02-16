@@ -46,7 +46,7 @@ public class UserController {
             //这里手机号码和短信一致 , 登陆成功
             //TODO 这个判断应替换为快递员表格查询手机号的结果
             User user = new User();
-            if("18516955565".equals(userPhone)){
+            if("15111111111".equals(userPhone)){
                 //快递员
                 msg.setStatus(1);
                 user.setUser(false);
@@ -63,6 +63,7 @@ public class UserController {
             msg.setStatus(-2);
             msg.setResult("验证码不一致,请检查");
         }
+        System.out.println(request.getSession().getAttribute("wxUser").toString());
         String json = JSONUtil.toJSON(msg);
         return json;
     }
